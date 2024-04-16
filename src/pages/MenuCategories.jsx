@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
+import CategoryItem from "./CategoryItem";
 const MenuCategories = ({ categoryList }) => {
   let categoryCards = categoryList.map((category) => (
     <Link
       to={`/menu-item-details/${category.idCategory}`}
       key={category.idCategory}
     >
-      <div className="border border-green-400 rounded-lg p-3   ">
-        <img src={category.strCategoryThumb} loading="lazy" alt={category.strCategory} />
-        <h1 className="text-center uppercase mt-2 font-semibold md:text-lg">
-          {category.strCategory}
-        </h1>
-      </div>
+     
+      <CategoryItem
+       categoryId={category.idCategory}
+       categoryImage={category.strCategoryThumb}
+       categoryHeading={category.strCategory}
+        />
     </Link>
   ));
   return (
