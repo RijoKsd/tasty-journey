@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { fetchMealCategories } from "./api/api";
 import MenuCategories from "./pages/MenuCategories";
 import Loader from "./components/Loader";
+
+export const CategoryContext = createContext();
 
 const RecipeApp = () => {
   const [categories, setCategories] = useState([]);
@@ -16,17 +18,16 @@ const RecipeApp = () => {
         console.log("Error fetching meal categories: ", error.message)
       )
       .finally(() => setIsLoading(false));
-
-      
   }, []);
 
- 
   return (
     <div>
       {isLoading ? (
-       < Loader/>
+        <Loader />
       ) : categories.length > 0 ? (
-        <MenuCategories categoryList={categories} />
+        <CategoryContext.Provider value={categories}>
+          <MenuCategories />
+        </CategoryContext.Provider>
       ) : (
         <p>No categories found.</p>
       )}

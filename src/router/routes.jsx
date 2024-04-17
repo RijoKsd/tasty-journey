@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/menu-item-details/:itemId",
+    path: "/menu-item-details/:itemId/:itemName",
     element: <MenuItemDetails />,
   },
 ]);
