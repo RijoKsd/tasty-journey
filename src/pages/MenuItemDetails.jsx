@@ -62,7 +62,10 @@ const MenuItemDetails = () => {
       <div>{filteredData}</div>
 
       {menusByCategory && (
-        <MenusByCategory menusByCategory={menusByCategory} itemName = {itemName}/>
+        <MenusByCategory
+          menusByCategory={menusByCategory}
+          itemName={itemName}
+        />
       )}
     </div>
   );

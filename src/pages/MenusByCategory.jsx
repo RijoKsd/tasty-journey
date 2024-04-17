@@ -1,13 +1,11 @@
 import CategoryItem from "./CategoryItem";
 
 const MenusByCategory = ({ menusByCategory, itemName }) => {
-  console.log(menusByCategory);
   let categoryData = menusByCategory.map((menu) => (
     <CategoryItem
       key={menu.idMeal}
       categoryImage={menu.strMealThumb}
       categoryHeading={menu.strMeal}
-      //   categoryParagraph={menu.strCategoryDescription}
     />
   ));
   return (
@@ -21,7 +19,7 @@ const MenusByCategory = ({ menusByCategory, itemName }) => {
         {categoryData && categoryData.length > 0 ? (
           categoryData
         ) : (
-          <p >No data found</p>
+          <p>No data found</p>
         )}
       </div>
     </div>
